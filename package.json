@@ -17,9 +17,7 @@
         "format:fix": "pretty-quick --staged",
         "thiswillbeprecommit": "run-s format:fix lint",
         "lint": "tslint 'src/**/*.{ts, tsx}'",
-        "prettier": "prettier --config ./.prettierrc --list-different ./src/*",
-        "format:check": "prettier --config ./.prettierrc --list-different \"src/**/*{.ts,.js,.json,.css,.scss}\"",
-        "format:write": "prettier --config ./.prettierrc --write \"src/**/*{.ts,.js,.json,.css,.scss}\""
+        "prettier": "prettier --config ./.prettierrc --write \"src/**/*{.ts,.js,.json,.css,.scss}\""
     },
     "keywords": [],
     "author": "",

@@ -1,3 +1,3 @@
 export interface RouteNode {
-    path: string
+    path: string;
 }

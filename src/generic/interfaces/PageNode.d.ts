@@ -1,4 +1,2 @@
-import {GenericNode} from "./GenericNode"
-export interface PageNode extends GenericNode{
-
-}
+import { GenericNode } from "./GenericNode";
+export interface PageNode extends GenericNode {}

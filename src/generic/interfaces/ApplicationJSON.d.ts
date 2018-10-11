@@ -1,4 +1,4 @@
-import {ApplicationNode} from "./ApplicationNode";
+import { ApplicationNode } from "./ApplicationNode";
 export interface ApplicationJSON {
     application: ApplicationNode;
 }
