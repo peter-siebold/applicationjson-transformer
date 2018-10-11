@@ -1,5 +1,9 @@
+import { getPageTransformer } from "../platforms/config/index";
 import { ApplicationJSON } from "./interfaces/ApplicationJSON";
-export const transformApplication = (applicationJson: ApplicationJSON) => {
-    console.log(applicationJson);
-    console.log("lala");
+import { Environment } from "./interfaces/transformer/Environment";
+export const transformApplication = (applicationJson: ApplicationJSON, env: Environment) => {
+    const transformer = getPageTransformer(env);
+    if (transformer) {
+        transformer(applicationJson);
+    }
 };

@@ -12,3 +12,12 @@ export const getPages = (json: ApplicationJSON) => {
     }
     return pages;
 };
+export abstract class AbstractPageNodeTransformer {
+    public static getPageNodes(applicationJson: ApplicationJSON) {
+        let pages: PageNode[] = [];
+        if (applicationJson && applicationJson.application && applicationJson.application.pages) {
+            pages = [...applicationJson.application.pages];
+        }
+        return pages;
+    }
+}
