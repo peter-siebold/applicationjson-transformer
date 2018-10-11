@@ -1,20 +1,20 @@
-
 import fs from "fs-extra";
+import { ApplicationJSON } from "../interfaces/ApplicationJSON";
 
-export const getApplicationNameFromJSON = (json: any) => {
+export const getApplicationNameFromJSON = (fileName: any) => {
     let name;
     let jsonFile;
-    let applicationJSON;
-    console.log("trying to get the application name from file")
+    let applicationJSON: ApplicationJSON;
+    console.log("trying to get the application name from file");
     try {
-        jsonFile = fs.readFileSync(json) as Buffer;  
+        jsonFile = fs.readFileSync(fileName) as Buffer;
     } catch (error) {
         console.error("An error occurred when opening the application.json file", error);
     }
-    if(jsonFile){
+    if (jsonFile) {
         try {
             applicationJSON = JSON.parse(jsonFile.toString());
-            if(applicationJSON.application && applicationJSON.application.name){
+            if (applicationJSON.application && applicationJSON.application.name) {
                 name = applicationJSON.application.name;
             }
         } catch (error) {
@@ -22,17 +22,21 @@ export const getApplicationNameFromJSON = (json: any) => {
         }
     }
     return name;
-}
-
+};
+/**
+ * get an application json object from a file in the filesystem
+ * @param {string} filename
+ * @returns {ApplicationJSON | undefined} json
+ */
 export const getApplicationJson = (filename: string) => {
     let jsonFile;
-    let applicationJSON;
+    let applicationJSON: ApplicationJSON | undefined;
     try {
-        jsonFile = fs.readFileSync(filename);  
+        jsonFile = fs.readFileSync(filename);
     } catch (error) {
         console.error("An error occurred when opening the application.json file", error);
     }
-    if(jsonFile){
+    if (jsonFile) {
         try {
             applicationJSON = JSON.parse(jsonFile.toString());
         } catch (error) {
@@ -40,6 +44,4 @@ export const getApplicationJson = (filename: string) => {
         }
     }
     return applicationJSON;
-}
-
-
+};
