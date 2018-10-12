@@ -4,7 +4,10 @@ export const getPageTransformer = (environment: Environment) => {
     switch (environment.platform) {
         case "next":
             return transformers.next;
-            break;
+        case "nuxt":
+            return transformers.nuxt;
+        case "react-native":
+            return transformers["react-native"];
         default:
             throw new Error("Cannot find transformer for platform " + environment.platform);
     }
