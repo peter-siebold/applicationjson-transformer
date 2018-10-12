@@ -4,10 +4,8 @@
     "jsRules": {},
     "rules": {
         "ordered-imports": true,
-        "no-console": {
-            "severity": "warning",
-            "options": ["debug", "info", "log", "time", "timeEnd", "trace"]
-        },
+        "no-console": false,
+
         "interface-name": [true, "never-prefix"]
     }
 }

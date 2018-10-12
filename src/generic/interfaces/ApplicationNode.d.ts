@@ -1,4 +1,4 @@
-import { PageNode } from "./PageNode";
+import { ApplicationPageNode } from "./ComponentNodes/ApplicationPage";
 export interface ApplicationNode {
     creationVersion: string;
     lang: string;
@@ -8,5 +8,5 @@ export interface ApplicationNode {
     description: string;
     title: string;
     appMenu: string;
-    pages: PageNode[];
+    pages: ApplicationPageNode[];
 }

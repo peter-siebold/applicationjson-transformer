@@ -1,6 +1,6 @@
-import { Environment } from "../../generic/interfaces/transformer/Environment";
-import { transformers } from "./transformers";
-export const getPageTransformer = (environment: Environment) => {
+import { Environment } from "../generic/interfaces/transformer/Environment";
+import { transformers } from "./config/transformers";
+export const getTransformer = (environment: Environment) => {
     switch (environment.platform) {
         case "next":
             return transformers.next;
@@ -12,4 +12,4 @@ export const getPageTransformer = (environment: Environment) => {
             throw new Error("Cannot find transformer for platform " + environment.platform);
     }
 };
-export default getPageTransformer;
+export default getTransformer;

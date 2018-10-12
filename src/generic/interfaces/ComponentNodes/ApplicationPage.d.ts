@@ -1,4 +1,4 @@
 import { GenericNode } from "./GenericNode";
-export interface PageNode extends GenericNode {
+export interface ApplicationPageNode extends GenericNode {
     children: GenericNode[];
 }

@@ -1,5 +1,5 @@
 import { ApplicationJSON } from "../../../generic/interfaces/ApplicationJSON";
-import PageTransformer from "../Page";
+import PageTransformer from "../ApplicationPage";
 export const transformApplication = (application: ApplicationJSON) => {
     const pages = PageTransformer.getPageNodes(application);
     if (pages) {
