@@ -1,11 +1,9 @@
-import { GenericNodeTransformer } from "../../generic/interfaces/transformer/GenericNodeTransformer";
-import ApplicationPage from "./ApplicationPage";
+import { TransformerCollection } from "../../generic/interfaces/transformer/TransformerCollection";
 import ButtonControl from "./ButtonControl";
+import GenericElementNode from "./GenericElementNode";
 
-export interface TransformerCollection {
-    [key: string]: GenericNodeTransformer;
-}
 export const transformers: TransformerCollection = {
     // ApplicationPage,
-    ButtonControl,
+    ActionControl: ButtonControl,
+    GenericElementNode,
 };

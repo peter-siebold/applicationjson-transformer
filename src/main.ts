@@ -7,7 +7,7 @@ import { getApplicationJson, getApplicationNameFromJSON } from "./generic/helper
 import { Environment } from "./generic/interfaces/transformer/Environment";
 import { transformApplication } from "./generic/nodeTransformer";
 const defaults = {
-    platform: "next",
+    platform: "nuxt",
 };
 const menu = () => {
     const argv = yargs

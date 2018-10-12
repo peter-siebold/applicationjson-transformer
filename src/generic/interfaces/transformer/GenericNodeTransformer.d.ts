@@ -4,5 +4,5 @@ export interface GenericNodeTransformerBase {}
 
 export interface GenericNodeTransformer {
     new (): GenericNodeTransformerBase;
-    transform(node: GenericNode): string;
+    transform(node: GenericNode, level: number): string;
 }
