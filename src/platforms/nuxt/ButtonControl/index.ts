@@ -9,6 +9,9 @@ export class ButtonControl {
         const indent = indentation.repeat(level);
         return `${indent}<button id="${node.id}">${node.controlType}</button>\n`;
     }
+    public static getImports() {
+        return ["ButtonControl"];
+    }
 }
 
 export default ButtonControl;

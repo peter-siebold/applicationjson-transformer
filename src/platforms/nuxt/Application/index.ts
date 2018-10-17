@@ -5,8 +5,16 @@ export const transformApplication = (application: ApplicationJSON) => {
     if (pages) {
         for (const page of pages) {
             console.log("transform page...");
-            const pageMarkup = PageTransformer.transform(page);
-            console.log(pageMarkup);
+            const pageMarkup = `<template>\n${PageTransformer.transform(page, 1)}\n</template>`;
+            // console.log(pageMarkup);
+            console.log("markup done, now get imports");
+            const imports = PageTransformer.getImports(page);
+
+            console.log("imports", imports);
+
+            const pageScript = `\n<script>\n${imports.join("\n")}
+                \n</script>`;
+            console.log(pageScript);
         }
     } else {
         console.error("Could not find any pages in application json");
