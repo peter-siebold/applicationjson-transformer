@@ -4,6 +4,6 @@ export interface GenericNodeTransformerBase {}
 
 export interface GenericNodeTransformer {
     new (): GenericNodeTransformerBase;
-    transform(node: GenericNode, level: number): string;
+    generateMarkup(node: GenericNode, level: number): string;
     getImports(node: GenericNode): string[];
 }

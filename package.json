@@ -11,7 +11,7 @@
         "build": "del-cli ./lib/* && npm run build:types && npm run build:js",
         "build:types": "tsc --emitDeclarationOnly",
         "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",
-        "transform": "node app.js --name=\"Basic Application\" --input=\"./samples/sample_1/application.json\"",
+        "transform": "node app.js --input=\"./samples/sample_1/application.json\" --output=\"./apps\" --name=\"MyApp\"",
         "start": "npm run build && npm run transform",
         "check-dependencies": "npx madge --circular --extensions ts ./",
         "format:fix": "pretty-quick --staged",

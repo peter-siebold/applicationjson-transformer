@@ -7,7 +7,7 @@ export const renderChildren = (node: GenericNode, transformers: TransformerColle
         for (const childNode of node.children) {
             const nodeTransformer =
                 childNode.controlType in transformers ? childNode.controlType : "GenericElementNode";
-            markup += transformers[nodeTransformer].transform(childNode, level);
+            markup += transformers[nodeTransformer].generateMarkup(childNode, level);
         }
     }
     return markup;

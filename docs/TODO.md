@@ -12,3 +12,40 @@ export declare interface ComponentDescription {
     exports: string [];
 }
 ```
+
+What needs to be done, when we find a new page node?
+platform independent
+create a file for the page / screen.
+get the imports (need to do this first for react based output -> react, react-native, secondly for vue based output)
+get the markup for the page (first for vue, second for react)
+for vue we need to also export the component within the vue instance
+
+    vue:
+
+    <template>
+        { markup}
+    </template>
+    <script>
+        { imports }
+        const vue = Vue.new({
+            components : [
+                { exports }
+            ],
+            data: {
+                { /* might be a place for defining page global data sources like REST or GraphQl Services */}
+            }
+        }
+        )
+
+to mkae things more clear first of all, markup generating stuff should be moved to a new folder
+file creating stuff to another folder
+setup for the application in also in another folder
+
+paltforms
+nuxt
+application
+setup
+components
+ButtonControl
+InputControl
+...
