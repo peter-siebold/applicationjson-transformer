@@ -5,6 +5,7 @@ import { AbstractPageNodeTransformer } from "../../../../generic/helpers/Abstrac
 import FileHelper from "../../../../generic/helpers/FileHelper";
 import { flattenArray } from "../../../../generic/helpers/flattenArray";
 import { getChildNodeImports } from "../../../../generic/helpers/getImports";
+import ObjectHelper from "../../../../generic/helpers/ObjectHelper";
 import { renderChildren } from "../../../../generic/helpers/renderChildren";
 import { ApplicationPageNode } from "../../../../generic/interfaces/ComponentNodes/ApplicationPage";
 import { ComponentImport } from "../../../../generic/interfaces/transformer/ComponentImports";
@@ -39,6 +40,16 @@ export class PageTransformer extends AbstractPageNodeTransformer {
         });
         return result;
     }
+    public static registerComponents(page: ApplicationPageNode, level: number = 0) {
+        const components = PageTransformer.getImports(page);
+        const indent = indentation.repeat(level + 1);
+        let result = `${indent}components: {\n`;
+        components.forEach(component => {
+            result += `${indentation.repeat(level + 2)}${component.name},\n`;
+        });
+        result += `${indent}},\n`;
+        return result;
+    }
     /**
      *
      *
@@ -52,8 +63,7 @@ export class PageTransformer extends AbstractPageNodeTransformer {
         // extend import collection with child node imports
         imports = flattenArray([...imports, ...getChildNodeImports(pageNode, transformers)]);
         // remove duplicates
-        imports = removeDuplicates(imports, "name");
-
+        imports = ObjectHelper.removeDuplicates(imports, "name");
         return imports;
     }
     /**
@@ -79,6 +89,10 @@ export class PageTransformer extends AbstractPageNodeTransformer {
             console.log("Error while creating the output file", error);
         }
     }
+    public static getLayout(page: ApplicationPageNode) {
+        const layout = "default";
+        return `layout: "${layout}",\n`;
+    }
     /**
      *
      *
@@ -90,15 +104,14 @@ export class PageTransformer extends AbstractPageNodeTransformer {
     public static generatePageScript(page: ApplicationPageNode) {
         let script = `<script>\n`;
         script += PageTransformer.generateImportStatements(page);
+        script += `${indentation}export default {\n`;
+        script += PageTransformer.registerComponents(page, 1);
+        script += `${indentation}};\n`;
         script += `</script>\n`;
         return script;
     }
 }
-function removeDuplicates(myArr: any[], prop: string) {
-    return myArr.filter((obj, pos, arr) => {
-        return arr.map(mapObj => mapObj[prop]).indexOf(obj[prop]) === pos;
-    });
-}
+
 export default PageTransformer;
 
 /*
