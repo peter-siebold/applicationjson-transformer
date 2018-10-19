@@ -4,6 +4,7 @@ import { flattenArray } from "../../../../generic/helpers/flattenArray";
 import { getChildNodeImports } from "../../../../generic/helpers/getImports";
 import { renderChildren } from "../../../../generic/helpers/renderChildren";
 import { GenericNode } from "../../../../generic/interfaces/ComponentNodes/GenericNode";
+import { ComponentImport } from "../../../../generic/interfaces/transformer/ComponentImports";
 import { GenericNodeTransformer } from "../../../../generic/interfaces/transformer/GenericNodeTransformer";
 import { transformers } from "../../index";
 
@@ -18,21 +19,7 @@ export class GenericElementNode {
         return markup;
     }
     public static getImports(node: GenericNode) {
-        /*
-            {
-                component: "GenericControl",
-                exports: "GenericControl"
-            }
-
-            {
-                component: "ActionControl",
-                imports: [
-                    'import ActionControl from "@componentlib/ActionControl"'
-                ],
-                exports: "ActionControl"
-            }
-        */
-        let imports: string[] = [];
+        let imports: ComponentImport[] = [];
         // extend import collection with child node imports
         imports = flattenArray([...imports, ...getChildNodeImports(node, transformers)]);
         // remove duplicates

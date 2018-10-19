@@ -5,6 +5,8 @@
     ],
     "plugins": [
         "@babel/proposal-class-properties",
+        "@babel/plugin-transform-regenerator",
+        "@babel/plugin-proposal-async-generator-functions",
         "@babel/proposal-object-rest-spread",
         [
             "@babel/plugin-proposal-decorators",

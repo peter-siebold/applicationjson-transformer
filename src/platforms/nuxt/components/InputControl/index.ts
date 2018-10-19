@@ -1,24 +1,25 @@
 import { indentation } from "../../../../generic/config/indentation";
 import { staticImplements } from "../../../../generic/decorators/staticImplements";
-import { ButtonControlNode } from "../../../../generic/interfaces/ComponentNodes/ButtonControl";
+import { InputControlNode } from "../../../../generic/interfaces/ComponentNodes/InputControl";
 import { ComponentImport } from "../../../../generic/interfaces/transformer/ComponentImports";
 import { GenericNodeTransformer } from "../../../../generic/interfaces/transformer/GenericNodeTransformer";
 
 @staticImplements<GenericNodeTransformer>()
-export class ButtonControl {
-    public static generateMarkup(node: ButtonControlNode, level: number = 0) {
+export class InputControl {
+    public static generateMarkup(node: InputControlNode, level: number = 0) {
         const indent = indentation.repeat(level);
-        return `${indent}<button id="${node.id}">${node.controlType}</button>\n`;
+        const inputType = node.type || "text";
+        return `${indent}<input type="${inputType}" id="${node.id}" />\n`;
     }
-    public static getImports(pageNode: ButtonControlNode) {
+    public static getImports(pageNode: InputControlNode) {
         const imports: ComponentImport[] = [
             {
-                name: "ButtonControl",
-                path: "@componnently/ButtonControl",
+                name: "InputControl",
+                path: "@componnently/InputControl",
             },
         ];
         return imports;
     }
 }
 
-export default ButtonControl;
+export default InputControl;
