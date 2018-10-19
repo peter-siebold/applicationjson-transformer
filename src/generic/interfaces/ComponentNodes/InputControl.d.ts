@@ -3,7 +3,7 @@ import { GenericNode } from "./GenericNode";
 export interface InputControlNode extends GenericNode {
     children: never;
     value: string;
-    placeholder?: string;
+    placeHolder?: string;
     type?: inputTypes;
 }
 

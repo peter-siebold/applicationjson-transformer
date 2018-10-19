@@ -9,7 +9,8 @@ export class InputControl {
     public static generateMarkup(node: InputControlNode, level: number = 0) {
         const indent = indentation.repeat(level);
         const inputType = node.type || "text";
-        return `${indent}<input type="${inputType}" id="${node.id}" />\n`;
+        const placeHolder = node.placeHolder ? `placeholder="${node.placeHolder}"` : "";
+        return `${indent}<input type="${inputType}" ${placeHolder} id="${node.id}" />\n`;
     }
     public static getImports(pageNode: InputControlNode) {
         const imports: ComponentImport[] = [

@@ -7,7 +7,10 @@ import { flattenArray } from "../../../../generic/helpers/flattenArray";
 import { getChildNodeImports } from "../../../../generic/helpers/getImports";
 import ObjectHelper from "../../../../generic/helpers/ObjectHelper";
 import { renderChildren } from "../../../../generic/helpers/renderChildren";
-import { ApplicationPageNode } from "../../../../generic/interfaces/ComponentNodes/ApplicationPage";
+import {
+    ApplicationPageNode,
+    ApplicationStyleProperty,
+} from "../../../../generic/interfaces/ComponentNodes/ApplicationPage";
 import { ComponentImport } from "../../../../generic/interfaces/transformer/ComponentImports";
 import { Environment } from "../../../../generic/interfaces/transformer/Environment";
 import { GenericNodeTransformer } from "../../../../generic/interfaces/transformer/GenericNodeTransformer";
@@ -50,6 +53,33 @@ export class PageTransformer extends AbstractPageNodeTransformer {
         result += `${indent}},\n`;
         return result;
     }
+    public static getLayout(page: ApplicationPageNode, level: number = 0) {
+        const indent = indentation.repeat(level + 1);
+        const layout = page.layout ? page.layout : "default";
+        return `${indent}layout: "${layout}",\n`;
+    }
+    public static writePageStyle(page: ApplicationPageNode, level: number = 0) {
+        let style = "";
+        const indent = indentation.repeat(level + 1);
+        const sublvl = indentation.repeat(level + 2);
+        if (page.styles) {
+            const { styles } = page;
+            style += `<style ${styles.scoped ? "scoped" : ""}>\n`;
+            styles.rules.forEach(rule => {
+                let css = "";
+                css += `${indent}${rule.selector} {\n`;
+                for (const prop in rule.properties) {
+                    if (rule.properties[prop]) {
+                        css += `${sublvl}${prop} : "${rule.properties[prop]}";\n`;
+                    }
+                }
+                css += `${indent}}\n`;
+                style += css;
+            });
+            style += `</style>`;
+        }
+        return style;
+    }
     /**
      *
      *
@@ -79,8 +109,7 @@ export class PageTransformer extends AbstractPageNodeTransformer {
         const outputPath = `${env.output || env.dirname}/applications/${appName}/pages/${page.name}/`;
         const markup = PageTransformer.generateMarkup(page, 0);
         const script = PageTransformer.generatePageScript(page);
-        const styles = "";
-        const writePage = false;
+        const styles = PageTransformer.writePageStyle(page);
         const content = `${markup}${script}${styles}`;
         try {
             await FileHelper.mkDirByPathSync(outputPath);
@@ -89,10 +118,7 @@ export class PageTransformer extends AbstractPageNodeTransformer {
             console.log("Error while creating the output file", error);
         }
     }
-    public static getLayout(page: ApplicationPageNode) {
-        const layout = "default";
-        return `layout: "${layout}",\n`;
-    }
+
     /**
      *
      *
@@ -102,9 +128,12 @@ export class PageTransformer extends AbstractPageNodeTransformer {
      * @memberof PageTransformer
      */
     public static generatePageScript(page: ApplicationPageNode) {
+        const level = 0;
+        const indent = indentation.repeat(level + 1);
         let script = `<script>\n`;
         script += PageTransformer.generateImportStatements(page);
         script += `${indentation}export default {\n`;
+        script += PageTransformer.getLayout(page, 1);
         script += PageTransformer.registerComponents(page, 1);
         script += `${indentation}};\n`;
         script += `</script>\n`;

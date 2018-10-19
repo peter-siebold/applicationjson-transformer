@@ -1,37 +1,45 @@
 {
     "application": {
-        "creationVersion" : "8100001",
-        "lang" : "en",
-        "guid" : "24396A5C1A414EF1BEB2008450B42F61A8BFDD90",
-        "startpage" : "94D1BCD1974F95016F8F7FB86CBD77B3FD57F3DC",
-        "name" : "applicationAAE26487",
-        "description" : {
+        "creationVersion": "8100001",
+        "lang": "en",
+        "guid": "24396A5C1A414EF1BEB2008450B42F61A8BFDD90",
+        "startpage": "94D1BCD1974F95016F8F7FB86CBD77B3FD57F3DC",
+        "name": "applicationAAE26487",
+        "description": {
             "en": "Basic template for creating any kind of application.",
-            "de" : "Basisvorlage für beliebige Applikationen."
+            "de": "Basisvorlage für beliebige Applikationen."
         },
-        "title" : {
-            "en" : "Simple App",
-            "de" : "Basisapplikation"
+        "title": {
+            "en": "Simple App",
+            "de": "Basisapplikation"
         },
         "appMenu": [
-            { "guid" : "872CE8DE1AF09D066C868B2A1225A6AE89E1E473", "link-page": "94D1BCD1974F95016F8F7FB86CBD77B3FD57F3DC", "name" : "page86EC3DA8"},
-            { "guid" : "13799A1AA9B3FE45C2198F20177900391485DF86", "link-page" : "C58C18B0C06226B9187A3DC4549B950A6077F91E", "name" : "pageEB295876"}
+            {
+                "guid": "872CE8DE1AF09D066C868B2A1225A6AE89E1E473",
+                "link-page": "94D1BCD1974F95016F8F7FB86CBD77B3FD57F3DC",
+                "name": "page86EC3DA8"
+            },
+            {
+                "guid": "13799A1AA9B3FE45C2198F20177900391485DF86",
+                "link-page": "C58C18B0C06226B9187A3DC4549B950A6077F91E",
+                "name": "pageEB295876"
+            }
         ],
-        "pages" : [
-            { 
-                "guid" : "94D1BCD1974F95016F8F7FB86CBD77B3FD57F3DC", 
-                "name" : "viewpageBD246FF2",
-                "id" : "viewpageBD246FF2",
+        "pages": [
+            {
+                "guid": "94D1BCD1974F95016F8F7FB86CBD77B3FD57F3DC",
+                "name": "viewpageBD246FF2",
+                "id": "viewpageBD246FF2",
                 "controlType": "ApplicationPage",
-                "children" : [
+                "children": [
                     {
-                        "controlType": "div",  
-                        "class" : "grid-row",
-                        "id" : "ID_gridrow_1",
+                        "controlType": "div",
+                        "class": "grid-row",
+                        "id": "ID_gridrow_1",
                         "children": [
                             {
-                                "controlType": "div",  
-                                "class" : "grid-column",
+                                "controlType": "div",
+                                "class": "grid-column",
                                 "id": "ID_gridcol_1_1",
                                 "size": {
                                     "s": 12,
@@ -49,6 +57,7 @@
                                     {
                                         "controlType": "InputControl",
                                         "id": "ID_InputControl_1_1",
+                                        "placeHolder": "Please enter some text",
                                         "validation": {
                                             "pattern": "^0-9+$"
                                         }
@@ -56,8 +65,8 @@
                                 ]
                             },
                             {
-                                "controlType": "div",  
-                                "class" : "grid-column",
+                                "controlType": "div",
+                                "class": "grid-column",
                                 "id": "ID_gridcol_1_2",
                                 "size": {
                                     "s": 12,
@@ -66,13 +75,13 @@
                                 },
                                 "children": [
                                     {
-                                        "controlType": "div",  
-                                        "class" : "grid-row",
-                                        "id" : "ID_gridrow_1_2",
+                                        "controlType": "div",
+                                        "class": "grid-row",
+                                        "id": "ID_gridrow_1_2",
                                         "children": [
                                             {
-                                                "controlType": "div",  
-                                                "class" : "grid-column",
+                                                "controlType": "div",
+                                                "class": "grid-column",
                                                 "id": "ID_gridcol_1_2_1",
                                                 "size": {
                                                     "s": 12,
@@ -90,8 +99,8 @@
                                                 ]
                                             },
                                             {
-                                                "controlType": "div",  
-                                                "class" : "grid-column",
+                                                "controlType": "div",
+                                                "class": "grid-column",
                                                 "id": "ID_gridcol_1_2_2",
                                                 "size": {
                                                     "s": 12,
@@ -113,8 +122,8 @@
                                 ]
                             },
                             {
-                                "controlType": "div",  
-                                "class" : "grid-column",
+                                "controlType": "div",
+                                "class": "grid-column",
                                 "id": "ID_gridcol_1_3",
                                 "size": {
                                     "s": 12,
@@ -134,13 +143,13 @@
                         ]
                     },
                     {
-                        "controlType": "div",  
-                        "class" : "grid-row",
-                        "id" : "ID_gridrow_2",
+                        "controlType": "div",
+                        "class": "grid-row",
+                        "id": "ID_gridrow_2",
                         "children": [
                             {
-                                "controlType": "div",  
-                                "class" : "grid-column",
+                                "controlType": "div",
+                                "class": "grid-column",
                                 "id": "ID_gridcol_2_1",
                                 "size": {
                                     "s": 12,
@@ -158,8 +167,8 @@
                                 ]
                             },
                             {
-                                "controlType": "div",  
-                                "class" : "grid-column",
+                                "controlType": "div",
+                                "class": "grid-column",
                                 "id": "ID_gridcol_2_2",
                                 "size": {
                                     "s": 12,
@@ -180,20 +189,40 @@
                     }
                 ]
             },
-            { 
-                "guid" : "C58C18B0C06226B9187A3DC4549B950A6077F91E", 
-                "name" : "viewpageABC123",
-                "id" : "viewpageABC123",
+            {
+                "guid": "C58C18B0C06226B9187A3DC4549B950A6077F91E",
+                "name": "viewpageABC123",
+                "id": "viewpageABC123",
+                "layout": "admin",
+                "styles": {
+                    "scoped": true,
+                    "rules": [
+                        {
+                            "selector": ".admin-page",
+                            "properties": {
+                                "padding": "20px"
+                            }
+                        },
+                        {
+                            "selector": ".new-post",
+                            "properties": {
+                                "text-align": "center",
+                                "border-bottom": "2px solid #ccc;",
+                                "padding-bottom": "10px"
+                            }
+                        }
+                    ]
+                },
                 "controlType": "ApplicationPage",
-                "children" : [
+                "children": [
                     {
-                        "controlType": "div",  
-                        "class" : "grid-row",
-                        "id" : "ID_gridrow_1",
+                        "controlType": "div",
+                        "class": "grid-row",
+                        "id": "ID_gridrow_1",
                         "children": [
                             {
-                                "controlType": "div",  
-                                "class" : "grid-column",
+                                "controlType": "div",
+                                "class": "grid-column",
                                 "id": "ID_gridcol_1_1",
                                 "size": {
                                     "s": 12,
@@ -210,6 +239,7 @@
                                     },
                                     {
                                         "controlType": "InputControl",
+                                        "placeHolder": "Please enter some text",
                                         "id": "ID_InputControl_1_1",
                                         "validation": {
                                             "pattern": "^0-9+$"
@@ -218,8 +248,8 @@
                                 ]
                             },
                             {
-                                "controlType": "div",  
-                                "class" : "grid-column",
+                                "controlType": "div",
+                                "class": "grid-column",
                                 "id": "ID_gridcol_1_2",
                                 "size": {
                                     "s": 12,
@@ -228,13 +258,13 @@
                                 },
                                 "children": [
                                     {
-                                        "controlType": "div",  
-                                        "class" : "grid-row",
-                                        "id" : "ID_gridrow_1_2",
+                                        "controlType": "div",
+                                        "class": "grid-row",
+                                        "id": "ID_gridrow_1_2",
                                         "children": [
                                             {
-                                                "controlType": "div",  
-                                                "class" : "grid-column",
+                                                "controlType": "div",
+                                                "class": "grid-column",
                                                 "id": "ID_gridcol_1_2_1",
                                                 "size": {
                                                     "s": 12,
@@ -252,8 +282,8 @@
                                                 ]
                                             },
                                             {
-                                                "controlType": "div",  
-                                                "class" : "grid-column",
+                                                "controlType": "div",
+                                                "class": "grid-column",
                                                 "id": "ID_gridcol_1_2_2",
                                                 "size": {
                                                     "s": 12,
@@ -275,8 +305,8 @@
                                 ]
                             },
                             {
-                                "controlType": "div",  
-                                "class" : "grid-column",
+                                "controlType": "div",
+                                "class": "grid-column",
                                 "id": "ID_gridcol_1_3",
                                 "size": {
                                     "s": 12,
@@ -296,13 +326,13 @@
                         ]
                     },
                     {
-                        "controlType": "div",  
-                        "class" : "grid-row",
-                        "id" : "ID_gridrow_2",
+                        "controlType": "div",
+                        "class": "grid-row",
+                        "id": "ID_gridrow_2",
                         "children": [
                             {
-                                "controlType": "div",  
-                                "class" : "grid-column",
+                                "controlType": "div",
+                                "class": "grid-column",
                                 "id": "ID_gridcol_2_1",
                                 "size": {
                                     "s": 12,
@@ -320,8 +350,8 @@
                                 ]
                             },
                             {
-                                "controlType": "div",  
-                                "class" : "grid-column",
+                                "controlType": "div",
+                                "class": "grid-column",
                                 "id": "ID_gridcol_2_2",
                                 "size": {
                                     "s": 12,
@@ -345,8 +375,8 @@
         ],
         "resources": [
             {
-                "name" : "application.js",
-                "path" : "../include/application.js"
+                "name": "application.js",
+                "path": "../include/application.js"
             }
         ]
     }

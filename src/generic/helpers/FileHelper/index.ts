@@ -39,7 +39,6 @@ export const createDirectoryIfNotExistsRecursive = async (dir: string) => {
 };
 export const buildPath = (...parts: string[]) => {
     let result = "";
-    console.log(parts);
     parts.forEach(part => {
         if (result.match(/\/+$/) || result === "") {
             result += part;
