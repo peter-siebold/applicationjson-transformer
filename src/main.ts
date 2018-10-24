@@ -6,6 +6,11 @@ import yargs from "yargs";
 import { getApplicationJson, getApplicationNameFromJSON } from "./generic/helpers/jsonHelpers";
 import { Environment } from "./generic/interfaces/transformer/Environment";
 import { transformApplication } from "./generic/nodeTransformer";
+/**
+ * basic environment information for the page transformer
+ * @export
+ * @interface ApplicationEnvironment
+ */
 export declare interface ApplicationEnvironment {
     dirname: string;
     env: NodeJS.ProcessEnv;
@@ -13,6 +18,10 @@ export declare interface ApplicationEnvironment {
 const defaults = {
     platform: "nuxt",
 };
+/**
+ * command line based menu for the application
+ * @param {ApplicationEnvironment} appEnv
+ */
 const menu = (appEnv: ApplicationEnvironment) => {
     const argv = yargs
         .option("name", {

@@ -1,7 +1,12 @@
 import fs from "fs-extra";
 import { ApplicationJSON } from "../interfaces/ApplicationJSON";
 
-export const getApplicationNameFromJSON = (fileName: any) => {
+/**
+ * get the application name from the application JSON file
+ * @param {*} fileName
+ * @returns
+ */
+const getApplicationNameFromJSON = (fileName: any) => {
     let name;
     let jsonFile;
     let applicationJSON: ApplicationJSON;
@@ -28,7 +33,7 @@ export const getApplicationNameFromJSON = (fileName: any) => {
  * @param {string} filename
  * @returns {ApplicationJSON | undefined} json
  */
-export const getApplicationJson = (filename: string) => {
+const getApplicationJson = (filename: string) => {
     let jsonFile;
     let applicationJSON: ApplicationJSON | undefined;
     try {
@@ -45,3 +50,4 @@ export const getApplicationJson = (filename: string) => {
     }
     return applicationJSON;
 };
+export { getApplicationNameFromJSON, getApplicationJson };

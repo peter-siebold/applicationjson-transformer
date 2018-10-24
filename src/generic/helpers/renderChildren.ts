@@ -1,7 +1,14 @@
 import { GenericNode } from "../interfaces/ComponentNodes/GenericNode";
 import { TransformerCollection } from "../interfaces/transformer/TransformerCollection";
 
-export const renderChildren = (node: GenericNode, transformers: TransformerCollection, level: number = 0) => {
+/**
+ * render all child nodes of a given node
+ * @param {GenericNode} node
+ * @param {TransformerCollection} transformers
+ * @param {number} [level=0]
+ * @returns
+ */
+const renderChildren = (node: GenericNode, transformers: TransformerCollection, level: number = 0) => {
     let markup = "";
     if (node.children) {
         for (const childNode of node.children) {
@@ -12,3 +19,4 @@ export const renderChildren = (node: GenericNode, transformers: TransformerColle
     }
     return markup;
 };
+export { renderChildren };

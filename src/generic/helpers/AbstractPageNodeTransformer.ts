@@ -3,7 +3,11 @@ import { ApplicationLayoutNode } from "../interfaces/ComponentNodes/ApplicationL
 import { ApplicationPageNode } from "../interfaces/ComponentNodes/ApplicationPage";
 import { GenericNodeTransformer } from "../interfaces/transformer/GenericNodeTransformer";
 
-export class AbstractPageNodeTransformer {
+/**
+ * General Page Node Transformer Class. PRovides basic Functionality that is common for all Page Transformers
+ * @class AbstractPageNodeTransformer
+ */
+class AbstractPageNodeTransformer {
     public static getPageNodes(applicationJson: ApplicationJSON) {
         let pages: ApplicationPageNode[] = [];
         if (applicationJson && applicationJson.application && applicationJson.application.pages) {
@@ -19,3 +23,4 @@ export class AbstractPageNodeTransformer {
         return layouts;
     }
 }
+export { AbstractPageNodeTransformer };
