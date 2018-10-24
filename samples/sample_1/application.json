@@ -378,6 +378,7 @@
                 "guid": "34D1ACD1974F95016F8F7FB86CBD77B3FD57F3DC",
                 "name": "admin-page",
                 "id": "adminPage",
+                "type": "internal",
                 "controlType": "Layout",
                 "children": [
                     {
@@ -398,6 +399,8 @@
                 "guid": "34D1ACD1974F95016F8F7FB86CBD77B3FD57F3DC",
                 "name": "company-ci",
                 "id": "CILayout",
+                "type": "external",
+                "controlType": "Layout",
                 "path": "@/Layouts/CILayout"
             }
         ],

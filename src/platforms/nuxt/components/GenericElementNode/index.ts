@@ -12,7 +12,8 @@ import { transformers } from "../../index";
 export class GenericElementNode {
     public static generateMarkup(node: GenericNode, level: number = 0) {
         const indent = indentation.repeat(level);
-        let markup = `${indent}<div id="${node.id}">`;
+        const id = node.id ? ` id="${node.id}"` : "";
+        let markup = `${indent}<div${id}>`;
         markup = node.children ? markup + "\n" : markup;
         markup += renderChildren(node, transformers, level + 1);
         markup += `${node.children ? indent : ""}</div>\n`;

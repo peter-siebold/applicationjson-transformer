@@ -1,3 +1,4 @@
+import { ApplicationLayoutNode } from "./ComponentNodes/ApplicationLayout";
 import { ApplicationPageNode } from "./ComponentNodes/ApplicationPage";
 export interface ApplicationNode {
     creationVersion: string;
@@ -9,4 +10,5 @@ export interface ApplicationNode {
     title: string;
     appMenu: string;
     pages: ApplicationPageNode[];
+    layouts?: ApplicationLayoutNode[];
 }
