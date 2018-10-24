@@ -5,6 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "jest",
+        "doc": "typedoc --out docs/ src/",
         "tscript": "tsc --init --declaration --allowSyntheticDefaultImports --target esnext --outDir lib",
         "type-check": "tsc --noEmit",
         "type-check:watch": "npm run type-check -- --watch",

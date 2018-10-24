@@ -1,5 +1,6 @@
 node_modules/
 lib/
+docs/
 apps/
 .DS_Store
 application-templates/
