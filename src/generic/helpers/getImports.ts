@@ -1,6 +1,6 @@
 import { GenericNode } from "../interfaces/ComponentNodes/GenericNode";
 import { TransformerCollection } from "../interfaces/transformer/TransformerCollection";
-import { flattenArray } from "./flattenArray";
+import { flattenArray } from "./ObjectHelper/flattenArray";
 export const getChildNodeImports = (node: GenericNode, transformers: TransformerCollection) => {
     const imports = [];
     if (node.children) {

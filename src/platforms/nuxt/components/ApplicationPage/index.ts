@@ -3,9 +3,9 @@ import { indentation } from "../../../../generic/config/indentation";
 import { staticImplements } from "../../../../generic/decorators/staticImplements";
 import { AbstractPageNodeTransformer } from "../../../../generic/helpers/AbstractPageNodeTransformer";
 import FileHelper from "../../../../generic/helpers/FileHelper";
-import { flattenArray } from "../../../../generic/helpers/flattenArray";
 import { getChildNodeImports } from "../../../../generic/helpers/getImports";
 import ObjectHelper from "../../../../generic/helpers/ObjectHelper";
+import { flattenArray } from "../../../../generic/helpers/ObjectHelper/flattenArray";
 import { renderChildren } from "../../../../generic/helpers/renderChildren";
 import {
     ApplicationPageNode,

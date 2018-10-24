@@ -2,3 +2,4 @@ node_modules/
 lib/
 apps/
 .DS_Store
+application-templates/

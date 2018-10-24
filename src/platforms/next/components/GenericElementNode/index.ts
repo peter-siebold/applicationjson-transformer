@@ -1,7 +1,7 @@
 import { indentation } from "../../../../generic/config/indentation";
 import { staticImplements } from "../../../../generic/decorators/staticImplements";
-import { flattenArray } from "../../../../generic/helpers/flattenArray";
 import { getChildNodeImports } from "../../../../generic/helpers/getImports";
+import { flattenArray } from "../../../../generic/helpers/ObjectHelper/flattenArray";
 import { renderChildren } from "../../../../generic/helpers/renderChildren";
 import { GenericNode } from "../../../../generic/interfaces/ComponentNodes/GenericNode";
 import { ComponentImport } from "../../../../generic/interfaces/transformer/ComponentImports";

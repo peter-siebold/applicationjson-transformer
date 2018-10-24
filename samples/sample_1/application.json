@@ -373,6 +373,34 @@
                 ]
             }
         ],
+        "layouts": [
+            {
+                "guid": "34D1ACD1974F95016F8F7FB86CBD77B3FD57F3DC",
+                "name": "admin-page",
+                "id": "adminPage",
+                "controlType": "Layout",
+                "children": [
+                    {
+                        "controlType": "div",
+                        "id": "",
+                        "children": [
+                            {
+                                "controlType": "Header"
+                            },
+                            {
+                                "controlType": "nuxt"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "guid": "34D1ACD1974F95016F8F7FB86CBD77B3FD57F3DC",
+                "name": "company-ci",
+                "id": "CILayout",
+                "path": "@/Layouts/CILayout"
+            }
+        ],
         "resources": [
             {
                 "name": "application.js",
