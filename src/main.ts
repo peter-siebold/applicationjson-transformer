@@ -32,11 +32,6 @@ const menu = (appEnv: ApplicationEnvironment) => {
             default: defaults.platform,
             describe: "target platform",
         })
-        // .option('mode', {
-        //     alias: 'm',
-        //     default: "app",
-        //     describe: 'specify a transformer mode'
-        // })
         .demandOption(["name", "input"], "Please at least a name and a path to the application.json")
         .help().argv;
 
