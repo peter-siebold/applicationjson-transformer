@@ -49,3 +49,15 @@ components
 ButtonControl
 InputControl
 ...
+
+## Testing
+
+Need to find one test frameworks for testing the whole transformer with unit tests and prefereably snapshot tests.
+
+### Dokumentation
+
+Need to document all classes and MEthods and then either use typedoc or jsdoc for documentation of the project
+
+### Versioning
+
+Need to check in the whole project into a new github repository, before being back. At the moments this all is still mine.
