@@ -4,7 +4,7 @@ import { ApplicationPageNode } from "../interfaces/ComponentNodes/ApplicationPag
 import { GenericNodeTransformer } from "../interfaces/transformer/GenericNodeTransformer";
 
 /**
- * General Page Node Transformer Class. PRovides basic Functionality that is common for all Page Transformers
+ * General Page Node Transformer Class. Provides basic Functionality that is common for all Page Transformers
  * @class AbstractPageNodeTransformer
  */
 class AbstractPageNodeTransformer {
