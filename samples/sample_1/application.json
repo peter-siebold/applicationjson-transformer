@@ -376,22 +376,19 @@
         "layouts": [
             {
                 "guid": "34D1ACD1974F95016F8F7FB86CBD77B3FD57F3DC",
-                "name": "admin-page",
+                "name": "admin",
                 "id": "adminPage",
                 "type": "internal",
                 "controlType": "Layout",
                 "children": [
                     {
-                        "controlType": "div",
-                        "id": "",
-                        "children": [
-                            {
-                                "controlType": "Header"
-                            },
-                            {
-                                "controlType": "nuxt"
-                            }
-                        ]
+                        "controlType": "header"
+                    },
+                    {
+                        "controlType": "Header"
+                    },
+                    {
+                        "controlType": "ApplicationStage"
                     }
                 ]
             },
