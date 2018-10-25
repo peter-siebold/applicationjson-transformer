@@ -4,17 +4,10 @@
  */
 import yargs from "yargs";
 import { getApplicationJson, getApplicationNameFromJSON } from "./generic/helpers/jsonHelpers";
+import { ApplicationEnvironment } from "./generic/interfaces/transformer/ApplicationEnvironment";
 import { Environment } from "./generic/interfaces/transformer/Environment";
 import { transformApplication } from "./generic/nodeTransformer";
-/**
- * basic environment information for the page transformer
- * @export
- * @interface ApplicationEnvironment
- */
-export declare interface ApplicationEnvironment {
-    dirname: string;
-    env: NodeJS.ProcessEnv;
-}
+
 const defaults = {
     platform: "nuxt",
 };

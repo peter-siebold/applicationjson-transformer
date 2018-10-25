@@ -4,7 +4,7 @@ const promptToBuild = () => {
 };
 
 // try {
-const menu = require("./lib/main").menu;
+const menu = require("./build/main").menu;
 const dirName = __dirname;
 const appEnvironment = {
     env: process.env,

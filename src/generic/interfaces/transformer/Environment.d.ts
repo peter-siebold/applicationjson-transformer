@@ -1,4 +1,4 @@
-import { ApplicationEnvironment } from "../../../main";
+import { ApplicationEnvironment } from "./ApplicationEnvironment";
 
 export interface Environment extends ApplicationEnvironment {
     name: string;
