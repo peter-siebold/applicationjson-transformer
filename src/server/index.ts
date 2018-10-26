@@ -33,7 +33,7 @@ const port: number = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
 
 app.get("/", (req, res) => res.send("Hello World!"));
 
-app.post("/transform", (req, res) => {
+app.post("/transform", async (req, res) => {
     try {
         const input = req.body;
         const name = (req.headers.name as string) || (getApplicationName(input) as string);
@@ -54,7 +54,7 @@ app.post("/transform", (req, res) => {
         if (applicationJson) {
             console.log(`transform application ${name} as a ${platform} application`);
 
-            transformApplication(applicationJson, environment);
+            await transformApplication(applicationJson, environment);
             res.sendStatus(200);
         }
     } catch (error) {

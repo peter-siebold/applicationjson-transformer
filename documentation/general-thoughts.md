@@ -40,3 +40,8 @@ We might need to be able to tranform Markup to a compatible JSON for the GUI Bui
 In next and Nuxt Layouts (wrapping components that provice Styling and thingslike navigation)
 
 It could be benefitial to allow both: Layout nodes that will result in creating a new Layout PAge within the project or a Layout Node that just refers to another file via path. In the latter case we need to check if we have to copy the Layout File into our Next/Nuxt App, or if we just can reference resources from anywhere
+
+## publishing into a temporary directory
+
+IT woul dmake more snese to publish in a temp Directory and just move all files, if all pages have been published successfully.
+We still need an idea of the desired output directory, to make sure that the import paths are still valid

@@ -13,7 +13,7 @@ import { transformApplication } from "../generic/nodeTransformer";
  * command line based menu for the application
  * @param {ApplicationEnvironment} appEnv
  */
-const menu = (appEnv: ApplicationEnvironment) => {
+const menu = async (appEnv: ApplicationEnvironment) => {
     const argv = yargs
         .option("name", {
             alias: "n",
@@ -47,7 +47,7 @@ const menu = (appEnv: ApplicationEnvironment) => {
         ...appEnv,
     };
     if (applicationJson) {
-        transformApplication(applicationJson, environment);
+        await transformApplication(applicationJson, environment);
     }
 };
 

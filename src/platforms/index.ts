@@ -6,8 +6,8 @@ export const getTransformer = (environment: Environment) => {
             return transformers.next;
         case "nuxt":
             return transformers.nuxt;
-        case "react-native":
-            return transformers["react-native"];
+        // case "react-native":
+        //     return transformers["react-native"];
         default:
             throw new Error("Cannot find transformer for platform " + environment.platform);
     }
