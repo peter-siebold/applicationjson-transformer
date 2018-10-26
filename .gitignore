@@ -3,5 +3,6 @@ lib/
 build/
 docs/
 apps/
+applications/
 .DS_Store
 application-templates/

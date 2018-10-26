@@ -7,6 +7,7 @@ import "@babel/polyfill";
 // Import everything from express and assign it to the express variable
 import bodyParser from "body-parser";
 import express from "express";
+import path from "path";
 
 import { defaults } from "../__config__";
 import { getApplicationJson } from "../generic/helpers/jsonHelpers";
@@ -37,8 +38,8 @@ app.post("/transform", (req, res) => {
         const input = req.body;
         const name = (req.headers.name as string) || (getApplicationName(input) as string);
         const platform = req.headers.platform as string;
-        const output = (req.headers.output || __dirname) as string;
-        const dirname = __dirname;
+        const dirname = path.join(__dirname, "..", "..");
+        const output = (req.headers.output || dirname) as string;
         const appEnv = {
             dirname,
             env: process.env,
@@ -52,6 +53,7 @@ app.post("/transform", (req, res) => {
         };
         if (applicationJson) {
             console.log(`transform application ${name} as a ${platform} application`);
+
             transformApplication(applicationJson, environment);
             res.sendStatus(200);
         }
