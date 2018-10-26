@@ -6,13 +6,11 @@ import { GenericNodeTransformer } from "../../../../generic/interfaces/transform
 
 @staticImplements<GenericNodeTransformer>()
 export class Header {
-    public static generateMarkup(node: InputControlNode, level: number = 0) {
+    public static generateMarkup(_node: InputControlNode, level: number = 0) {
         const indent = indentation.repeat(level);
-        const inputType = node.type || "text";
-        const placeHolder = node.placeHolder ? `placeholder="${node.placeHolder}"` : "";
         return `${indent}<Header />\n`;
     }
-    public static getImports(pageNode: InputControlNode) {
+    public static getImports(_pageNode: InputControlNode) {
         const imports: ComponentImport[] = [
             {
                 name: "Header",

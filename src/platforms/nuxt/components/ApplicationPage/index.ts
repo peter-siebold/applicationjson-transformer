@@ -1,18 +1,12 @@
-import fs from "fs-extra";
 import { indentation } from "../../../../generic/config/indentation";
 import { staticImplements } from "../../../../generic/decorators/staticImplements";
 import { AbstractPageNodeTransformer } from "../../../../generic/helpers/AbstractPageNodeTransformer";
-import FileHelper from "../../../../generic/helpers/FileHelper";
 import { getChildNodeImports } from "../../../../generic/helpers/getImports";
 import ObjectHelper from "../../../../generic/helpers/ObjectHelper";
 import { flattenArray } from "../../../../generic/helpers/ObjectHelper/flattenArray";
 import { renderChildren } from "../../../../generic/helpers/renderChildren";
-import {
-    ApplicationPageNode,
-    ApplicationStyleProperty,
-} from "../../../../generic/interfaces/ComponentNodes/ApplicationPage";
+import { ApplicationPageNode } from "../../../../generic/interfaces/ComponentNodes/ApplicationPage";
 import { ComponentImport } from "../../../../generic/interfaces/transformer/ComponentImports";
-import { Environment } from "../../../../generic/interfaces/transformer/Environment";
 import { GenericNodeTransformer } from "../../../../generic/interfaces/transformer/GenericNodeTransformer";
 import { transformers } from "../../index";
 @staticImplements<GenericNodeTransformer>()
@@ -104,19 +98,26 @@ export class PageTransformer extends AbstractPageNodeTransformer {
      * @param {Environment} env
      * @memberof PageTransformer
      */
-    public static async createPage(page: ApplicationPageNode, env: Environment) {
-        const appName = env.name || page.name;
-        const outputPath = `${env.output || env.dirname}/applications/${appName}/pages/${page.name}/`;
+    // public static async createPage(page: ApplicationPageNode, env: Environment) {
+    //     const appName = env.name || page.name;
+    //     const outputPath = `${env.output || env.dirname}/applications/${appName}/pages/${page.name}/`;
+    //     const markup = PageTransformer.generateMarkup(page, 0);
+    //     const script = PageTransformer.generatePageScript(page);
+    //     const styles = PageTransformer.writePageStyle(page);
+    //     const content = `${markup}${script}${styles}`;
+    //     try {
+    //         await FileHelper.mkDirByPathSync(outputPath);
+    //         await fs.writeFileSync(FileHelper.buildPath(outputPath, "index.vue"), content);
+    //     } catch (error) {
+    //         console.log("Error while creating the output file", error);
+    //     }
+    // }
+    public static createPageContent(page: ApplicationPageNode) {
         const markup = PageTransformer.generateMarkup(page, 0);
         const script = PageTransformer.generatePageScript(page);
         const styles = PageTransformer.writePageStyle(page);
         const content = `${markup}${script}${styles}`;
-        try {
-            await FileHelper.mkDirByPathSync(outputPath);
-            await fs.writeFileSync(FileHelper.buildPath(outputPath, "index.vue"), content);
-        } catch (error) {
-            console.log("Error while creating the output file", error);
-        }
+        return content;
     }
 
     /**
@@ -128,8 +129,6 @@ export class PageTransformer extends AbstractPageNodeTransformer {
      * @memberof PageTransformer
      */
     public static generatePageScript(page: ApplicationPageNode) {
-        const level = 0;
-        const indent = indentation.repeat(level + 1);
         let script = `<script>\n`;
         script += PageTransformer.generateImportStatements(page);
         script += `${indentation}export default {\n`;

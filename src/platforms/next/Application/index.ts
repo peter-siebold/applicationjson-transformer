@@ -5,21 +5,10 @@ export const transformApplication = async (application: ApplicationJSON, env: En
     const pages = PageTransformer.getPageNodes(application);
     if (pages) {
         for (const page of pages) {
-            // TODO: create new file for the page
-            // TODO: get the markup for the page and write to file
-            // TODO:
-            await PageTransformer.createPage(page, env);
-            // console.log("transform page...");
-            // const pageMarkup = `<template>\n${PageTransformer.transform(page, 1)}\n</template>`;
-            // // console.log(pageMarkup);
-            // console.log("markup done, now get imports");
-            // const imports = PageTransformer.getImports(page);
-
-            // console.log("imports", imports);
-
-            // const pageScript = `\n<script>\n${imports.join("\n")}
-            //     \n</script>`;
-            // console.log(pageScript);
+            const appName = env.name || page.name;
+            const outputPath = `${env.output || env.dirname}/temp/applications/${appName}/pages/${page.name}/`;
+            const content = PageTransformer.createPageContent(page);
+            PageTransformer.writeToFs(content, outputPath, "index.jsx");
         }
     } else {
         console.error("Could not find any pages in application json");

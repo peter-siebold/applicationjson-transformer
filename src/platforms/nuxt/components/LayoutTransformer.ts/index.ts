@@ -1,19 +1,12 @@
-import fs from "fs-extra";
 import { indentation } from "../../../../generic/config/indentation";
 import { staticImplements } from "../../../../generic/decorators/staticImplements";
 import { AbstractPageNodeTransformer } from "../../../../generic/helpers/AbstractPageNodeTransformer";
-import FileHelper from "../../../../generic/helpers/FileHelper";
 import { getChildNodeImports } from "../../../../generic/helpers/getImports";
 import ObjectHelper from "../../../../generic/helpers/ObjectHelper";
 import { flattenArray } from "../../../../generic/helpers/ObjectHelper/flattenArray";
 import { renderChildren } from "../../../../generic/helpers/renderChildren";
 import { ApplicationLayoutNode } from "../../../../generic/interfaces/ComponentNodes/ApplicationLayout";
-import {
-    ApplicationPageNode,
-    ApplicationStyleProperty,
-} from "../../../../generic/interfaces/ComponentNodes/ApplicationPage";
 import { ComponentImport } from "../../../../generic/interfaces/transformer/ComponentImports";
-import { Environment } from "../../../../generic/interfaces/transformer/Environment";
 import { GenericNodeTransformer } from "../../../../generic/interfaces/transformer/GenericNodeTransformer";
 import { transformers } from "../../index";
 @staticImplements<GenericNodeTransformer>()
@@ -94,29 +87,14 @@ export class LayoutTransformer extends AbstractPageNodeTransformer {
         imports = ObjectHelper.removeDuplicates(imports, "name");
         return imports;
     }
-    /**
-     *
-     *
-     * @static
-     * @param {ApplicationPageNode} page
-     * @param {Environment} env
-     * @memberof LayoutTransformer
-     */
-    public static async createPage(page: ApplicationLayoutNode, env: Environment) {
-        const appName = env.name || page.name;
-        const outputPath = `${env.output || env.dirname}/applications/${appName}/layouts/`;
+
+    public static createPageContent(page: ApplicationLayoutNode) {
         const markup = LayoutTransformer.generateMarkup(page, 0);
         const script = LayoutTransformer.generatePageScript(page);
         const styles = LayoutTransformer.writePageStyle(page);
         const content = `${markup}${script}${styles}`;
-        try {
-            await FileHelper.mkDirByPathSync(outputPath);
-            await fs.writeFileSync(FileHelper.buildPath(outputPath, `${page.name}.vue`), content);
-        } catch (error) {
-            console.log("Error while creating the output file", error);
-        }
+        return content;
     }
-
     /**
      *
      *
@@ -126,8 +104,6 @@ export class LayoutTransformer extends AbstractPageNodeTransformer {
      * @memberof LayoutTransformer
      */
     public static generatePageScript(page: ApplicationLayoutNode) {
-        const level = 0;
-        const indent = indentation.repeat(level + 1);
         let script = `<script>\n`;
         script += LayoutTransformer.generateImportStatements(page);
         script += `${indentation}export default {\n`;

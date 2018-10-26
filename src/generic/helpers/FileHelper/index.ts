@@ -29,14 +29,7 @@ export const createDirectoryIfNotExists = async (dir: string) => {
         return error;
     }
 };
-export const createDirectoryIfNotExistsRecursive = async (dir: string) => {
-    try {
-        const directories = dir.split(path.sep);
-    } catch (error) {
-        console.error("An error occurred while creating directory", error);
-        return error;
-    }
-};
+
 export const buildPath = (...parts: string[]) => {
     let result = "";
     parts.forEach(part => {
@@ -81,7 +74,6 @@ const mkDirByPathSync = (targetDir: string, { isRelativeToScript = false } = {})
 export default {
     buildPath,
     createDirectoryIfNotExists,
-    createDirectoryIfNotExistsRecursive,
     fromDir,
     mkDirByPathSync,
 };

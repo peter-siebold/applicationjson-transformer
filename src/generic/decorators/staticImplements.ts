@@ -19,6 +19,7 @@
  * @returns
  */
 export function staticImplements<T>() {
+    // @ts-ignore
     // tslint:disable-next-line:no-empty
     return (constructor: T) => {};
 }

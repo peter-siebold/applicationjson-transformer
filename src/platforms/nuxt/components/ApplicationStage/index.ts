@@ -6,13 +6,12 @@ import { GenericNodeTransformer } from "../../../../generic/interfaces/transform
 
 @staticImplements<GenericNodeTransformer>()
 export class ApplicationStage {
-    public static generateMarkup(node: InputControlNode, level: number = 0) {
+    public static generateMarkup(_node: InputControlNode, level: number = 0) {
         const indent = indentation.repeat(level);
-        const inputType = node.type || "text";
-        const placeHolder = node.placeHolder ? `placeholder="${node.placeHolder}"` : "";
+
         return `${indent}<nuxt />\n`;
     }
-    public static getImports(pageNode: InputControlNode) {
+    public static getImports(_pageNode: InputControlNode) {
         const imports: ComponentImport[] = [];
         return imports;
     }

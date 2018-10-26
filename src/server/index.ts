@@ -8,11 +8,7 @@ import "@babel/polyfill";
 import bodyParser from "body-parser";
 import express from "express";
 import path from "path";
-
-import { defaults } from "../__config__";
-import { getApplicationJson } from "../generic/helpers/jsonHelpers";
 import { ApplicationJSON } from "../generic/interfaces/ApplicationJSON";
-import { ApplicationEnvironment } from "../generic/interfaces/transformer/ApplicationEnvironment";
 import { Environment } from "../generic/interfaces/transformer/Environment";
 import { transformApplication } from "../generic/nodeTransformer";
 
@@ -31,7 +27,7 @@ const port: number = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
 
 // Mount the WelcomeController at the /welcome route
 
-app.get("/", (req, res) => res.send("Hello World!"));
+app.get("/", (_req, res) => res.send("Hello World!"));
 
 app.post("/transform", async (req, res) => {
     try {

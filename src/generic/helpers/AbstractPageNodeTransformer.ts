@@ -1,7 +1,8 @@
+import fs from "fs-extra";
 import { ApplicationJSON } from "../interfaces/ApplicationJSON";
 import { ApplicationLayoutNode } from "../interfaces/ComponentNodes/ApplicationLayout";
 import { ApplicationPageNode } from "../interfaces/ComponentNodes/ApplicationPage";
-import { GenericNodeTransformer } from "../interfaces/transformer/GenericNodeTransformer";
+import FileHelper from "./FileHelper";
 
 /**
  * General Page Node Transformer Class. Provides basic Functionality that is common for all Page Transformers
@@ -21,6 +22,14 @@ class AbstractPageNodeTransformer {
             layouts = [...applicationJson.application.layouts];
         }
         return layouts;
+    }
+    public static async writeToFs(content: string, outputPath: string, filename: string) {
+        try {
+            await FileHelper.mkDirByPathSync(outputPath);
+            await fs.writeFileSync(FileHelper.buildPath(outputPath, filename), content);
+        } catch (error) {
+            console.log("Error while creating the output file", error);
+        }
     }
 }
 export { AbstractPageNodeTransformer };

@@ -7,15 +7,19 @@ export const transformApplication = async (application: ApplicationJSON, env: En
     const layouts = PageTransformer.getLayoutNodes(application);
     if (pages) {
         for (const page of pages) {
-            await PageTransformer.createPage(page, env);
+            const appName = env.name || page.name;
+            const outputPath = `${env.output || env.dirname}/temp/applications/${appName}/pages/${page.name}/`;
+            const content = PageTransformer.createPageContent(page);
+            PageTransformer.writeToFs(content, outputPath, "index.vue");
         }
     }
     if (layouts) {
         for (const layout of layouts) {
             if (layout.children && layout.type === "internal") {
-                await LayoutTransformer.createPage(layout, env);
-            } else {
-                // console.log("external layout resource", layout);
+                const appName = env.name || layout.name;
+                const outputPath = `${env.output || env.dirname}/temp/applications/${appName}/layouts/`;
+                const content = LayoutTransformer.createPageContent(layout);
+                LayoutTransformer.writeToFs(content, outputPath, `${layout.name}.vue`);
             }
             // TODO: check what to do if we have an external layout
         }

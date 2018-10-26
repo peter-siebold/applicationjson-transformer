@@ -1,18 +1,12 @@
-import fs from "fs-extra";
 import { indentation } from "../../../../generic/config/indentation";
 import { staticImplements } from "../../../../generic/decorators/staticImplements";
 import { AbstractPageNodeTransformer } from "../../../../generic/helpers/AbstractPageNodeTransformer";
-import FileHelper from "../../../../generic/helpers/FileHelper";
 import { getChildNodeImports } from "../../../../generic/helpers/getImports";
 import ObjectHelper from "../../../../generic/helpers/ObjectHelper";
 import { flattenArray } from "../../../../generic/helpers/ObjectHelper/flattenArray";
 import { renderChildren } from "../../../../generic/helpers/renderChildren";
-import {
-    ApplicationPageNode,
-    ApplicationStyleProperty,
-} from "../../../../generic/interfaces/ComponentNodes/ApplicationPage";
+import { ApplicationPageNode } from "../../../../generic/interfaces/ComponentNodes/ApplicationPage";
 import { ComponentImport } from "../../../../generic/interfaces/transformer/ComponentImports";
-import { Environment } from "../../../../generic/interfaces/transformer/Environment";
 import { GenericNodeTransformer } from "../../../../generic/interfaces/transformer/GenericNodeTransformer";
 import { transformers } from "../../index";
 @staticImplements<GenericNodeTransformer>()
@@ -98,27 +92,10 @@ export class PageTransformer extends AbstractPageNodeTransformer {
         imports = ObjectHelper.removeDuplicates(imports, "name");
         return imports;
     }
-    /**
-     *
-     *
-     * @static
-     * @param {ApplicationPageNode} page
-     * @param {Environment} env
-     * @memberof PageTransformer
-     */
-    public static async createPage(page: ApplicationPageNode, env: Environment) {
-        const appName = env.name || page.name;
-        const outputPath = `${env.output || env.dirname}/applications/${appName}/pages/${page.name}/`;
-        // const markup = PageTransformer.generateMarkup(page, 0);
+    public static createPageContent(page: ApplicationPageNode) {
         const script = PageTransformer.generatePageScript(page);
-        // const styles = PageTransformer.writePageStyle(page);
         const content = `${script}`;
-        try {
-            await FileHelper.mkDirByPathSync(outputPath);
-            await fs.writeFileSync(FileHelper.buildPath(outputPath, "index.jsx"), content);
-        } catch (error) {
-            console.log("Error while creating the output file", error);
-        }
+        return content;
     }
 
     /**
@@ -130,68 +107,13 @@ export class PageTransformer extends AbstractPageNodeTransformer {
      * @memberof PageTransformer
      */
     public static generatePageScript(page: ApplicationPageNode) {
-        const level = 0;
-        const indent = indentation.repeat(level + 1);
         let script = ``;
         script += PageTransformer.generateImportStatements(page);
         script += `export default (props) => (\n`;
         script += PageTransformer.generateMarkup(page);
-        // script += `${indentation}<Layout>\n`;
-        // script += PageTransformer.getLayout(page, 1);
-        // script += PageTransformer.registerComponents(page, 1);
-        // script += `${indentation}</Layout>\n`;
         script += `);\n`;
         return script;
     }
 }
 
 export default PageTransformer;
-
-/*
-<template>
-    <div class="admin-page">
-        <section class="new-post">
-            <AppButton @click="$router.push('/admin/new-post')">Create Post</AppButton>
-        </section>
-        <section class="existing-posts">
-            <h1>Exisiting Posts</h1>
-            <PostList 
-            :posts="loadedPosts"
-            isAdmin/>
-        </section>
-    </div>
-</template>
-
-<script>
-import PostList from "@/components/Posts/PostList";
-import AppButton from "@/components/UI/AppButton";
-export default {
-    layout: "admin",
-    components: {
-        AppButton,
-        PostList,
-    },
-    computed: {
-    loadedPosts() {
-      return this.$store.getters.loadedPosts
-    }
-  }
-}
-</script>
-
-<style jsx>
-.admin-page {
-  padding: 20px;
-}
-
-.new-post {
-  text-align: center;
-  border-bottom: 2px solid #ccc;
-  padding-bottom: 10px;
-}
-
-.existing-posts h1 {
-  text-align: center;
-}
-</style>
-*/
