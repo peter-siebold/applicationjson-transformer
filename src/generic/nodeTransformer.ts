@@ -8,6 +8,7 @@ import { Environment } from "./interfaces/transformer/Environment";
  */
 const transformApplication = (applicationJson: ApplicationJSON, env: Environment) => {
     const transformer = getTransformer(env);
+    console.log("transform an application");
     if (transformer) {
         transformer(applicationJson, env);
     }
