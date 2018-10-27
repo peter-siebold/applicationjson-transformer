@@ -12,14 +12,13 @@ export class InputControl {
         const placeHolder = node.placeHolder ? `placeholder="${node.placeHolder}"` : "";
         return `${indent}<input type="${inputType}" ${placeHolder} id="${node.id}" />\n`;
     }
-    public static getImports(_pageNode: InputControlNode) {
-        const imports: ComponentImport[] = [
+    public static getImports(_pageNode: InputControlNode): ComponentImport[] {
+        return [
             {
                 name: "InputControl",
                 path: "@componnently/InputControl",
             },
         ];
-        return imports;
     }
 }
 

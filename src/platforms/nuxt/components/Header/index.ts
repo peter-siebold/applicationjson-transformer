@@ -10,14 +10,13 @@ export class Header {
         const indent = indentation.repeat(level);
         return `${indent}<Header />\n`;
     }
-    public static getImports(_pageNode: InputControlNode) {
-        const imports: ComponentImport[] = [
+    public static getImports(_pageNode: InputControlNode): ComponentImport[] {
+        return [
             {
                 name: "Header",
                 path: "@componnently/Header",
             },
         ];
-        return imports;
     }
 }
 

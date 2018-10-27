@@ -12,7 +12,7 @@ const getApplicationNameFromJSON = (fileName: any) => {
     let applicationJSON: ApplicationJSON;
     console.log("trying to get the application name from file");
     try {
-        jsonFile = fs.readFileSync(fileName) as Buffer;
+        jsonFile = fs.readFileSync(fileName);
     } catch (error) {
         console.error("An error occurred when opening the application.json file", error);
     }

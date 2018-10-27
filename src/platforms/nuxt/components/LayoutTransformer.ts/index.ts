@@ -92,8 +92,7 @@ export class LayoutTransformer extends AbstractPageNodeTransformer {
         const markup = LayoutTransformer.generateMarkup(page, 0);
         const script = LayoutTransformer.generatePageScript(page);
         const styles = LayoutTransformer.writePageStyle(page);
-        const content = `${markup}${script}${styles}`;
-        return content;
+        return `${markup}${script}${styles}`;
     }
     /**
      *

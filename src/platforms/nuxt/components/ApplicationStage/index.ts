@@ -11,9 +11,8 @@ export class ApplicationStage {
 
         return `${indent}<nuxt />\n`;
     }
-    public static getImports(_pageNode: InputControlNode) {
-        const imports: ComponentImport[] = [];
-        return imports;
+    public static getImports(_pageNode: InputControlNode): ComponentImport[] {
+        return [];
     }
 }
 

@@ -17,7 +17,7 @@
         "check:dependencies": "madge --circular --extensions ts ./",
         "format:fix": "pretty-quick --staged",
         "precommit": "run-s format:fix lint",
-        "lint": "tslint 'src/**/*.{ts, tsx}'",
+        "lint": "tslint --project ./tsconfig.json 'src/**/*.{ts,tsx}'",
         "prettier": "prettier --config ./.prettierrc --write \"src/**/*{.ts,.js,.json,.css,.scss}\""
     },
     "keywords": [],
@@ -57,6 +57,7 @@
         "tslint": "^5.11.0",
         "tslint-config-prettier": "^1.15.0",
         "tslint-config-standard": "^8.0.1",
+        "tslint-sonarts": "^1.8.0",
         "typescript": "^3.1.1",
         "typescript-eslint-parser": "^20.0.0",
         "yargs": "^12.0.2"

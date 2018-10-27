@@ -116,8 +116,7 @@ export class PageTransformer extends AbstractPageNodeTransformer {
         const markup = PageTransformer.generateMarkup(page, 0);
         const script = PageTransformer.generatePageScript(page);
         const styles = PageTransformer.writePageStyle(page);
-        const content = `${markup}${script}${styles}`;
-        return content;
+        return `${markup}${script}${styles}`;
     }
 
     /**

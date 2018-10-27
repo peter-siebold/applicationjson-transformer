@@ -94,8 +94,7 @@ export class PageTransformer extends AbstractPageNodeTransformer {
     }
     public static createPageContent(page: ApplicationPageNode) {
         const script = PageTransformer.generatePageScript(page);
-        const content = `${script}`;
-        return content;
+        return `${script}`;
     }
 
     /**

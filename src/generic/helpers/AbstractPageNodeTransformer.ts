@@ -23,10 +23,10 @@ class AbstractPageNodeTransformer {
         }
         return layouts;
     }
-    public static async writeToFs(content: string, outputPath: string, filename: string) {
+    public static writeToFs(content: string, outputPath: string, filename: string) {
         try {
-            await FileHelper.mkDirByPathSync(outputPath);
-            await fs.writeFileSync(FileHelper.buildPath(outputPath, filename), content);
+            FileHelper.mkDirByPathSync(outputPath);
+            fs.writeFileSync(FileHelper.buildPath(outputPath, filename), content);
         } catch (error) {
             console.log("Error while creating the output file", error);
         }
