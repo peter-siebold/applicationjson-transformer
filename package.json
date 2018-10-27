@@ -6,9 +6,6 @@
     "scripts": {
         "test": "jest",
         "doc": "typedoc --out docs/ src/",
-        "tscript": "tsc --init --declaration --allowSyntheticDefaultImports --target esnext --outDir build",
-        "type-check": "tsc --noEmit",
-        "type-check:watch": "npm run type-check -- --watch",
         "build": "del-cli ./build/* && npm run build:types && npm run build:js",
         "build:types": "tsc --emitDeclarationOnly",
         "build:js": "babel src --out-dir build --extensions \".ts,.tsx\" --source-maps inline",
