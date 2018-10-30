@@ -6,3 +6,5 @@ apps/
 applications/
 .DS_Store
 application-templates/
+.sonar_lock
+.scannerwork/

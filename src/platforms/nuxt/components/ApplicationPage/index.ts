@@ -90,28 +90,6 @@ export class PageTransformer extends AbstractPageNodeTransformer {
         imports = ObjectHelper.removeDuplicates(imports, "name");
         return imports;
     }
-    /**
-     *
-     *
-     * @static
-     * @param {ApplicationPageNode} page
-     * @param {Environment} env
-     * @memberof PageTransformer
-     */
-    // public static async createPage(page: ApplicationPageNode, env: Environment) {
-    //     const appName = env.name || page.name;
-    //     const outputPath = `${env.output || env.dirname}/applications/${appName}/pages/${page.name}/`;
-    //     const markup = PageTransformer.generateMarkup(page, 0);
-    //     const script = PageTransformer.generatePageScript(page);
-    //     const styles = PageTransformer.writePageStyle(page);
-    //     const content = `${markup}${script}${styles}`;
-    //     try {
-    //         await FileHelper.mkDirByPathSync(outputPath);
-    //         await fs.writeFileSync(FileHelper.buildPath(outputPath, "index.vue"), content);
-    //     } catch (error) {
-    //         console.log("Error while creating the output file", error);
-    //     }
-    // }
     public static createPageContent(page: ApplicationPageNode) {
         const markup = PageTransformer.generateMarkup(page, 0);
         const script = PageTransformer.generatePageScript(page);

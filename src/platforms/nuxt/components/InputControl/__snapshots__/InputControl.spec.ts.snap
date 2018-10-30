@@ -1,0 +1,6 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonControl Snapshot 1`] = `
+"<input type=\\"text\\" placeholder=\\"Enter a text\\" id=\\"ID_ActionControl_1_1\\" />
+"
+`;
